@@ -1,2 +1,9 @@
-# Sistema-ControleDeEstoque
-Sistema desenvolvido em Java para gerenciamento de estoque, permitindo o cadastro de produtos e maquinários, além do controle de entrada e saída de itens.
+# Sistema de Controle de Estoque
+
+Sistema desenvolvido em Java para cadastro e controle de entrada e saída de produtos e maquinários.
+
+# Funcionalidades
+Cadastro de produtos
+Entrada de estoque
+Saída de estoque
+Listagem de itens
