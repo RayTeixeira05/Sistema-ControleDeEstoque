@@ -3,16 +3,23 @@ package model;
 public abstract class Produto {
     private String nome;
     private int quantidade;
+    private int id;
+
+    private static int contador = 1;
 
     public Produto(String nome) {
+        if(nome != null && !nome.isEmpty()) {
         this.nome = nome;
+        }
         this.quantidade = 0;
+        this.id = contador++;
     }
 
     public void setNome(String nome) {
+        if(nome != null && !nome.isEmpty()) {
         this.nome = nome;
+        }
     }
-    
     public String getNome() {
         return nome;
     }
@@ -22,9 +29,18 @@ public abstract class Produto {
         this.quantidade = quantidade;
         }
     }
-
     public int getQuantidade() {
         return quantidade;
+    }
+
+    public int getId() { 
+        return id; 
+    }
+    public void setId(int id) {
+        this.id = id;
+        if (id >= contador) {
+            contador = id + 1;
+        }
     }
 
     public void entrada(int qtd) {
@@ -42,5 +58,11 @@ public abstract class Produto {
             quantidade -= qtd;
         }
     }
-        public abstract String getTipo();
+
+    public abstract String getTipo();
+
+   @Override
+    public String toString() {
+        return "ID: " + id + " | " + nome + " | Tipo: " + getTipo() +" | Qtd: " + quantidade;
+    }
 }
