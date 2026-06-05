@@ -26,6 +26,7 @@ public class Main {
             System.out.println("5 - Listar");
             System.out.println("6 - Remover Produto");
             System.out.println("7 - Historico");
+            System.out.println("8 - Editar Produto");
             System.out.println("0 - Sair");
             System.out.print("Opção: ");
 
@@ -111,9 +112,53 @@ public class Main {
             break;
 
             case 7:
-             movService.listar();
+                movService.listar();
             break;
-        }   
+
+            case 8:
+            System.out.print("ID do produto: ");
+            int idEdit = sc.nextInt();
+            sc.nextLine();
+
+            Produto produtoEdit = estoque.buscarPorId(idEdit);
+
+            if (produtoEdit == null) {
+                System.out.println("Produto não encontrado!");
+                 break;
+            }
+
+            System.out.println("\n1 - Editar Nome");
+            System.out.println("2 - Editar Quantidade");
+            System.out.print("Opção: ");
+
+            int opEdit = sc.nextInt();
+            sc.nextLine();
+
+            switch (opEdit) {
+
+                case 1:
+                    System.out.print("Novo nome: ");
+                    String novoNome = sc.nextLine();
+
+                    estoque.editarNome(idEdit,novoNome);
+                    System.out.println("Nome atualizado!");
+                    break;
+
+                case 2:
+                    System.out.print("Nova quantidade: ");
+
+                    int novaQtd = sc.nextInt();
+
+                    estoque.editarQuantidade(idEdit,novaQtd);
+
+                    System.out.println("Quantidade atualizada!");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        break;
+    }   
     } while (op != 0);
 
         sc.close();

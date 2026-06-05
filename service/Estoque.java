@@ -37,6 +37,28 @@ public class Estoque {
         return false;
     }
 
+    public boolean editarNome(int id, String novoNome) {
+
+        Produto p = buscarPorId(id);
+
+        if (p != null) {
+            p.setNome(novoNome);
+            salvar();
+            return true;
+        }
+        return false;
+    }
+    public boolean editarQuantidade(int id, int novaQuantidade) {
+
+        Produto p = buscarPorId(id);
+
+        if (p != null) {
+            p.setQuantidade(novaQuantidade);
+            salvar();
+            return true;
+        }
+        return false;
+    }
 
     public void listar() {
         if (produtos.isEmpty()) {
