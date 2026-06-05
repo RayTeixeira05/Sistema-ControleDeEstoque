@@ -17,6 +17,7 @@ public class Estoque {
         salvar();
     }
 
+
     public Produto buscarPorId(int id) {
         for (Produto p : produtos) {
             if (p.getId() == id) {
@@ -25,6 +26,17 @@ public class Estoque {
         }
         return null;
     }
+    public boolean removerProduto(int id) {
+        Produto p = buscarPorId(id);
+
+        if(p != null) {
+            produtos.remove(p);
+            salvar();
+            return true;
+        }
+        return false;
+    }
+
 
     public void listar() {
         if (produtos.isEmpty()) {
